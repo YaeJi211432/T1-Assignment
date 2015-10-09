@@ -1,0 +1,79 @@
+<html>
+<head>
+<title> T1 Asssignment </title>
+<script src="scripts/processing.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+int rectLength;
+int rectHeight;
+int rectGap;
+int code;
+int power;
+
+int keysEntered;
+int z;
+
+void setup()
+{
+  
+  size( 1090, 613 );
+  frameRate( 30 );
+
+  rectLength = 100;
+  rectHeight = 100;
+  rectGap = 7
+  
+  keyEntered = 0;
+  z = 0;
+  code = 0;
+  power = 1;
+  
+  
+ 
+
+}
+
+
+void draw()
+{
+    background(0,255,0);
+    fill(255,255,255);
+    text(x,10,50);
+    
+    
+    
+    fill(249,216,243);
+    rect(70,70,100,100);
+    
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && z == 1)
+         {        
+         if (mouseY > 70 && mouseY < 170 &&
+		     mouseX > 70 && mouseX < 170) 
+	         {
+	          x = x + 1;
+              z = 0;
+             }
+          }
+        }
+    
+    if (mousePressed == false)
+    { 
+       z = 1;
+    }
+    
+   
+    
+    
+}
+ 
+
+</script>
+<canvas id="mycanvas"></canvas>
+</head>
+
+<body>
+
+</body>
+</html>
