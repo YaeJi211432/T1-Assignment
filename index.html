@@ -12,6 +12,26 @@ int power;
 
 int keysEntered;
 int z;
+int x;
+int b;
+int press;
+int password;
+int count;
+int multiply;
+
+number0 = loadImage ("Images/number0.png");
+number1 = loadImage ("Images/number1.png");
+number2 = loadImage ("Images/number2.png");
+number3 = loadImage ("Images/number3.png");
+number4 = loadImage ("Images/number4.png");
+number5 = loadImage ("Images/number5.png");
+number6 = loadImage ("Images/number6.png");
+number7 = loadImage ("Images/number7.png");
+number8 = loadImage ("Images/number8.png");
+number9 = loadImage ("Images/number9.png");
+number10 = loadImage ("Images/number10.png");
+star = loadImage ("Images/star.png");
+
 
 void setup()
 {
@@ -21,14 +41,18 @@ void setup()
 
   rectLength = 100;
   rectHeight = 100;
-  rectGap = 7
+  rectGap = 100;
   
   keyEntered = 0;
   z = 0;
   code = 0;
   power = 1;
-  
-  
+  press = 2;
+  x = 1;
+  b = 5;
+  password = 0;
+  count = 0;
+  multiply = 0;
  
 
 }
@@ -36,35 +60,477 @@ void setup()
 
 void draw()
 {
-    background(0,255,0);
-    fill(255,255,255);
-    text(x,10,50);
-    
-    
-    
-    fill(249,216,243);
-    rect(70,70,100,100);
-    
-    if (mousePressed == true)
+  background(10,10,255);
+  
+text(mouseX,500,70)
+text(mouseY,500,90)
+
+  
+  fill(255,255,255);
+  rect(500,300,300,100);
+  textSize(30);
+  text("Enter Password",150,70);
+  
+  // Row 1 SHAPES
+  rect(rectHeight,rectLength,rectHeight,rectLength);
+  rect(rectHeight+rectGap,rectLength,rectHeight,rectLength);
+  rect(rectHeight+2*rectGap,rectLength,rectHeight,rectLength);
+  // Row 2
+  rect(rectHeight,rectLength+rectGap,rectHeight,rectLength);
+  rect(rectHeight+rectGap,rectLength+rectGap,rectHeight,rectLength);
+  rect(rectHeight+2*rectGap,rectLength+rectGap,rectHeight,rectLength);
+  // Row 3
+  rect(rectHeight,rectLength+2*rectGap,rectHeight,rectLength);
+  rect(rectHeight+rectGap,rectLength+2*rectGap,rectHeight,rectLength);
+  rect(rectHeight+2*rectGap,rectLength+2*rectGap,rectHeight,rectLength);
+  // Row 4
+  rect(rectHeight,rectLength+3*rectGap,rectHeight,rectLength);
+  rect(rectHeight+rectGap,rectLength+3*rectGap,rectHeight,rectLength);
+  rect(rectHeight+2*rectGap,rectLength+3*rectGap,rectHeight,rectLength);
+  
+  // Row 1 IMAGES
+  image(number1,rectHeight,rectLength,rectHeight,rectLength);
+  image(number2,rectHeight+rectGap,rectLength,rectHeight,rectLength);
+  image(number3,rectHeight+2*rectGap,rectLength,rectHeight,rectLength);
+  // Row 2
+  image(number4,rectHeight,rectLength+rectGap,rectHeight,rectLength);
+  image(number5,rectHeight+rectGap,rectLength+rectGap,rectHeight,rectLength);
+  image(number6,rectHeight+2*rectGap,rectLength+rectGap,rectHeight,rectLength);
+  // Row 3
+  image(number7,rectHeight,rectLength+2*rectGap,rectHeight,rectLength);
+  image(number8,rectHeight+rectGap,rectLength+2*rectGap,rectHeight,rectLength);
+  image(number9,rectHeight+2*rectGap,rectLength+2*rectGap,rectHeight,rectLength);
+  // Row 4
+  image(number0,rectHeight+rectGap,rectLength+3*rectGap,rectHeight,rectLength);
+  
+  text(b,500,50);
+  text(z,600,50);
+  text(password,700,50);
+ 
+ //1 
+  if (mousePressed == true)
       { 
-      if (mouseButton == LEFT && z == 1)
+      if (mouseButton == LEFT && b == 5)
          {        
-         if (mouseY > 70 && mouseY < 170 &&
-		     mouseX > 70 && mouseX < 170) 
+         if (mouseY > 100 && mouseY < 200 &&
+		     mouseX > 100 && mouseX < 200) 
 	         {
-	          x = x + 1;
-              z = 0;
+	          z = z + 1;
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 2;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 2;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 2;
+	          }
+
+
+	          b = 0;
              }
           }
         }
     
+    if (z == 1)
+    { 
+       image(star,500,300);
+    }
     if (mousePressed == false)
     { 
-       z = 1;
+       b = 5;
+    }
+
+
+//2
+   if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 100 && mouseY < 200 &&
+		     mouseX > 200 && mouseX < 300) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 3;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 3;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 3;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 3;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 2)
+    { 
+       image(star,500,300);
+       image(star,550,300);
     }
     
-   
+     if (mousePressed == false)
+    { 
+       b = 5;
+    }
     
+    //3
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {       
+         if (mouseY > 100 && mouseY < 200 &&
+		     mouseX > 300 && mouseX < 400) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 4;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 4;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 4;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 4;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 3)
+    { 
+       image(star,500,300);
+       image(star,550,300);
+       image(star,600,300);
+       
+    }
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+  
+  //4
+  if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 200 && mouseY < 300 &&
+		     mouseX > 100 && mouseX < 200) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 5;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 5;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 5;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 5;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 4)
+    { 
+       image(star,500,300);
+       image(star,550,300);
+       image(star,600,300);
+       image(star,650,300);
+       
+    }
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+    
+    //5
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 200 && mouseY < 300 &&
+		     mouseX > 200 && mouseX < 300) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 6;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 6;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 6;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 6;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    // reset stars
+	if (z == 5)
+	{
+	z = 0;
+	password = 0;
+	}
+    
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+    
+    //6
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 200 && mouseY < 300 &&
+		     mouseX > 300 && mouseX < 400) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 7;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 7;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 7;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 7;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 6)
+    { 
+       image(star,rectHeight+6.5*rectGap,rectLength+2*rectGap);
+    }
+    
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+    
+    //7
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 300 && mouseY < 400 &&
+		     mouseX > 100 && mouseX < 200) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 8;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 8;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 8;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 8;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 7)
+    { 
+       image(star,rectHeight+7*rectGap,rectLength+2*rectGap);
+    }
+    
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+    
+    //8
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 300 && mouseY < 400 &&
+		     mouseX > 200 && mouseX < 300) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 9;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 9;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 9;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 8)
+    { 
+       image(star,rectHeight+7.5*rectGap,rectLength+2*rectGap);
+    }
+    
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+    
+    //9
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 300 && mouseY < 400 &&
+		     mouseX > 300 && mouseX < 400) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000 * 10;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 10;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 10;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1;
+	          }
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 9)
+    { 
+       image(star,rectHeight+8*rectGap,rectLength+2*rectGap);
+    }
+    
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+    
+    //0
+    if (mousePressed == true)
+      { 
+      if (mouseButton == LEFT && b == 5)
+         {        
+         if (mouseY > 400 && mouseY < 500 &&
+		     mouseX > 200 && mouseX < 300) 
+	         {
+	          z = z + 1
+	          if (z == 1)
+	          {
+	          	password = password + 1000;
+	          }
+	          if (z == 2)
+	          {
+	          	password = password + 100 * 11;
+	          }
+	          if (z == 3)
+	          {
+	          	password = password + 10 * 11;
+	          }
+	          if (z == 4)
+	          {
+	          	password = password + 1 * 11;
+	          }
+	         
+	          
+	          b = 0
+             }
+          }
+        }
+    
+    if (z == 10)
+    { 
+       image(star,rectHeight+8.5*rectGap,rectLength+2*rectGap);
+    }
+    
+    if (mousePressed == false)
+    { 
+       b = 5;
+    }
+    
+     if (password == 1111)
+    {
+      link("welcome.html")
+    }
     
 }
  
